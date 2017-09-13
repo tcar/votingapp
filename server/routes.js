@@ -11,19 +11,18 @@ router.route('/auth/facebook')
 
 router.route('/auth/facebook/callback')
 .get(passport.authenticate('facebook', {
-    successRedirect:'/',
         failureRedirect : '/'}),    
-                
+                controller.login
 )
 
 
 
-/*
+
 router.route('/getPolls')
     .get(controller.getPolls)
 
 router.route('/myPolls')
-    .get(controller.myPoll)
+    .get(controller.myPolls)
 
 router.route('/postPoll')
     .post(controller.postPoll)
@@ -32,12 +31,16 @@ router.route('/deletePoll')
     .delete(controller.deletePoll)
 
 router.route('/vote')
-    .post(controller.vote)
+    .put(controller.vote)
 
-router.route('getVotes')
-    .post(controller.getVotes)
-*/
+router.route('/getPoll')
+    .post(controller.getPoll)
 
+
+//testing
+
+router.route('/users')
+    .get(controller.getUsers)
 
 module.exports= router
 

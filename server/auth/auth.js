@@ -6,12 +6,10 @@ const FacebookStrategy = require('passport-facebook').Strategy
 
 
 passport.serializeUser(function(user, done) {
-    console.log(user)
     done(null, user);
   });
   
   passport.deserializeUser(function(user, done) {
-      console.log(user)
     done(null, user);
   });
 
