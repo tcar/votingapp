@@ -1,25 +1,48 @@
 import React, { Component } from 'react'
 import {List, ListItem} from 'material-ui/List';
-import { Link, Redirect } from 'react-router-dom'
 
 
 import { connect } from 'react-redux'
-import { myPolls, deletePoll } from '../actions/pollActions'
+import { myPolls, deletePoll, selectedPoll } from '../actions/pollActions'
 import RaisedButton from 'material-ui/RaisedButton';
+import { Link } from 'react-router-dom'
 
 class MyPolls extends Component{
     constructor(){
         super()
-        this.deletePoll= this.deletePoll.bind(this)
+        this.deletePoll= this.deletePoll.bind(this),
         this.result = this.result.bind(this)
     }
     componentWillMount(){
         this.props.myPolls()
     }
     render(){
+       const style={
+           align:{
+            textAlign:'center'
+           },
+           margin:{
+               marginTop:'10px'
+           },
+          
+           
+       }
+        console.log(this.props.mypolls)
         const polls = this.props.mypolls.map((poll)=>{
-            return <ListItem key={poll._id} onClick={()=>{this.result()}} rightIconButton={
-                <RaisedButton onClick={()=>{this.deletePoll(poll._id)}} primary={true} label='X' />}>{poll.question}</ListItem>
+            return (
+       
+           <ListItem 
+           style={style.align}
+           hoverColor='blue'
+            key={poll._id} 
+           
+            leftIcon={<Link to='/result'><RaisedButton onClick={()=>{this.result(poll._id)}}  label='votes' /></Link>}
+            primaryText={poll.question}            
+             rightIconButton={<RaisedButton style={style.margin} onClick={()=>{this.deletePoll(poll._id)}} primary={true} label='delete' />}></ListItem>
+         
+            
+            )
+            
         })
         return(
             <div>
@@ -37,8 +60,8 @@ class MyPolls extends Component{
         this.props.deletePoll(id)
 
     }
-    result(){
-        window.location.pathname='/result'
+    result(poll){
+        this.props.selectedPoll(poll)
     }
 }
 
@@ -58,6 +81,9 @@ const mapDispatchToProps = (dispatch)=>{
         },
         deletePoll:(id)=>{
             dispatch(deletePoll(id))
+        },
+        selectedPoll:(poll)=>{
+            dispatch(selectedPoll(poll))
         }
     }
 }

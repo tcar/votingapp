@@ -31,8 +31,14 @@ export function send(poll){
             
             }).then((res)=>{
                 dispatch({type:'SEND', payload:res.data})
-
-
+                axios({
+                    method:'get',
+                    url:'/myPolls'
+                }).then((rez)=>{
+                   
+                    dispatch({type:'GET_MYPOLLS', payload:rez.data})
+                })
+                
             })
 
 

@@ -30,7 +30,7 @@ export default function pollReducer(state={
                }
                     }
             case 'SEND':{
-                return{
+                return{...state,
                     question:'',
                     options:['',''],
                     polls:action.payload
