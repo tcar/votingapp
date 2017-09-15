@@ -7,6 +7,7 @@ const pollSchema = new Schema({
         type: String,
         required: true
     },
+    users_voted:[],
     options:[{
         answear:{type:String,
             },

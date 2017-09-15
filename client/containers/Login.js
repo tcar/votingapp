@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class About extends Component{
+import { getUser } from '../actions/userActions'
+
+ class Login extends Component{
+
+    componentWillMount(){
+        this.props.getUser()
+    }
+
     render(){
         return(
             <div>
@@ -9,3 +17,23 @@ export default class About extends Component{
         )
     }
 }
+
+const mapStateToProps = (state)=>{
+    return {
+
+    }
+}
+
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        getUser:()=>{
+            dispatch(getUser())
+        }
+        
+    }
+}
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

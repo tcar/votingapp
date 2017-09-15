@@ -36,11 +36,22 @@ router.route('/vote')
 router.route('/getPoll')
     .post(controller.getPoll)
 
+router.route('/user')
+    .get(controller.getUser)
+
+router.route('/logout')
+    .get(controller.logout),
+router.route('/getVotes')
+    .post(controller.getVotes)
+
+
 
 //testing
 
 router.route('/users')
     .get(controller.getUsers)
+router.route('/delete')
+    .get(controller.delete)
 
 module.exports= router
 
