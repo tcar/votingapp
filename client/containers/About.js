@@ -28,6 +28,20 @@ export default class About extends Component{
                     <p>Other key packages used including Material-ui, React Router(v4
                         ), Mongoose, Passport
                     </p>
+                    <p>As an authenticated user, I can keep my polls and come back later to access them.</p>
+                    <p>As an authenticated user, I can vote(only once).</p>
+                    <p>As an authenticated user, I can delete polls that I decide I don't want anymore.</p>
+                    <p> As an authenticated user, I can create a poll with any number of possible items.</p>
+                    <p>As an unauthenticated or authenticated user, I can see result of everyone's polls.</p>
+                    <p>As an unauthenticated or authenticated user, I can see the results of polls in chart form</p>
+                   
+
+
+
+
+
+
+
                 </div>
                 <div  style={style2} className='col s6'>
                     <h1>Author</h1>
