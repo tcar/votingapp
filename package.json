@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "engines": {
     "node": "8.2.1"
-},
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
     "webpack": "webpack --watch",
     "postinstall": "webpack -p",
-"start": "node server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +28,7 @@
     "css-loader": "^0.28.7",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
+    "file-loader": "^0.11.2",
     "jsonwebtoken": "^8.0.1",
     "material-ui": "^0.19.1",
     "moment": "^2.18.1",
