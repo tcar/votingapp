@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400');
 
 body{
-    background: url('../img/background.jpg');
+    background: url('../img/background.jpg') no-repeat;
     background-size: cover;
-    background-repeat: no-repeat;
     height:100vh;
 }
 
@@ -16,11 +15,7 @@ body p{
     font-family: 'Roboto', sans-serif;
     font-weight: 400
 }
-.background{
-    
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+
 .avatar{
     width:100px;
     size:cover;
