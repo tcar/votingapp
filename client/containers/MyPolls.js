@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {List, ListItem} from 'material-ui/List';
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import { connect } from 'react-redux'
 import { myPolls, deletePoll, selectedPoll } from '../actions/pollActions'
@@ -18,38 +18,43 @@ class MyPolls extends Component{
     }
     render(){
        const style={
-           align:{
-            textAlign:'center'
+           decoration:{
+            textDecoration:'none'
            },
            margin:{
-               marginTop:'10px'
+               marginTop:'10px',
+               
            },
           
            
        }
-        console.log(this.props.mypolls)
+        
         const polls = this.props.mypolls.map((poll)=>{
             return (
-       
-           <ListItem 
-           style={style.align}
-           hoverColor='blue'
-            key={poll._id} 
-           
-            leftIcon={<Link to='/result'><RaisedButton onClick={()=>{this.result(poll._id)}}  label='votes' /></Link>}
-            primaryText={poll.question}            
-             rightIconButton={<RaisedButton style={style.margin} onClick={()=>{this.deletePoll(poll._id)}} primary={true} label='delete' />}></ListItem>
-         
+                <div className='row hovering' key={poll._id} 
+                >
+       <div className='col s8'>
+           <Link style={style.decoration} to='/result'><ListItem 
+            onClick={()=>{this.result(poll._id)}}
             
+            primaryText={poll.question}            
+             ></ListItem>
+            </Link>
+            </div>
+                <div className='col s4 '>
+            <RaisedButton style={style.margin} onClick={()=>{this.deletePoll(poll._id)}} primary={true} label='delete' />
+                </div>
+                    </div>
             )
             
         })
         return(
-            <div>
+            <div className='container'>
                 <h1>mypolls</h1>
                 <List>
                     {polls}
                 </List>
+
             </div>
         )
     }

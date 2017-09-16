@@ -4,6 +4,7 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Dialog from 'material-ui/Dialog';
 import { questionChange, optionChange, addOption, send} from '../actions/pollActions'
+import logo from '../public/img/logo.png'
 
 import {
     BrowserRouter as Router,
@@ -43,13 +44,17 @@ import Form from './Form'
             decoration:{
                 'textDecoration': 'none',
                 color:'black'
-            }
+            },
+            
         }
+
         return(
             <div className='Nav'>
                 <Toolbar style={style}>
                     <ToolbarGroup firstChild={true}>
-                    <Link style={style.decoration} to='/'> <h1>voteplex</h1></Link>
+                    <Link className='header-logo' style={style.decoration} to='/'> 
+                    <h1 className='header-logo-title' >voteplex</h1>
+                    <img className='header-logo-img'  src={logo}/></Link>
                     </ToolbarGroup>
                     <ToolbarGroup lastChild={true}>
                     <div >

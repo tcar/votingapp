@@ -23,9 +23,20 @@ module:{
     },
     {
         test:/\.css$/,
-        use:[
+        loaders:[
             'style-loader',
             'css-loader'
+        ]
+    },
+    {
+        test: /\.(png|jpg|gif|ttf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+                name: '[path][name].[ext]'
+            }  
+          }
         ]
     }
 ]

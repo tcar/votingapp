@@ -53,5 +53,10 @@ router.route('/users')
 router.route('/delete')
     .get(controller.delete)
 
+    router.route('/deleteusers')
+    .get(controller.deleteusers)
+
+   
+
 module.exports= router
 

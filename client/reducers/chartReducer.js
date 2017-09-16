@@ -20,8 +20,7 @@ export default function chartReducer(state={
               return option.answear
             })
             const datasets = action.payload.options.map((option)=>{
-            
-            
+          
             var color = randomColor()
             
               return {

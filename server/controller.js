@@ -89,6 +89,10 @@ getUsers:async(req,res,nexr)=>{
 delete:async(req,res,nexr)=>{
     const polls= await Poll.remove({})
     res.send(polls)
+},
+deleteusers:async(req,res,nexr)=>{
+    const users= await User.remove({})
+    res.send(users)
 }
 
 

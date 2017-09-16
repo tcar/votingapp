@@ -15,14 +15,31 @@ import {Bar, Line, Pie} from 'react-chartjs-2';
 
 
     render(){
-        console.log(this.props.chartData)
+       const res = this.props.datasets.map((data)=>{
+           return data.data[0]
+       })
+       const max = res.reduce(function(a, b) {
+        return Math.max(a, b);
+    });
         return(
             <div className="chart">
             <Bar
               data={{
                 labels: this.props.labels,
-        datasets:this.props.datasets
+                datasets:this.props.datasets
               }}
+              options={{
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            max: max,
+                            min: 0,
+                            
+                        }
+                    }]
+                }    
+            }}
+
               />
               </div>
             

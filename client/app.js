@@ -8,8 +8,8 @@ import {
  } from 'react-router-dom'
  import { connect } from 'react-redux'
 
-import grid from './public/grid.css'
-import style from './public/style.css'
+import grid from './public/styles/grid.css'
+import style from './public//styles/style.css'
 import Nav from './components/Nav'
 
 import Home from './containers/Home'
@@ -24,14 +24,17 @@ import Result from './containers/Result'
 
 class App extends Component{
     render(){
+      
+
+
         return(
             <div > 
                 
                 <Router>
                     <div>
+                
+                <div >
                 <Nav />
-                <div className ='container'>
-
                     <Switch >
                             <Route exact path = '/' component={Home} />
                             <Route exact path = '/result' component={Result} />

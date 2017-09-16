@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {List, ListItem} from 'material-ui/List'
 import RaisedButton from 'material-ui/RaisedButton'
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 import Dialog from 'material-ui/Dialog'
 import { Link  } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -47,9 +49,10 @@ import { getList, voteChange, postVote, selectedPoll} from '../actions/pollActio
         
         return(
             
-            <div>
+            <div className='container'>
                  <List>
                     {polls}
+                   
                     <Dialog
                     
           title="Dialog With Actions"
