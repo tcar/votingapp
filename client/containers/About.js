@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Avatar from 'material-ui/Avatar';
 import profile from '../public/img/tcar.jpg'
 import logo from '../public/img/logo.png'
+import git from '../public/img/git.png'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 export default class About extends Component{
     render(){
@@ -29,9 +31,10 @@ export default class About extends Component{
                 </div>
                 <div  style={style2} className='col s6'>
                     <h1>Author</h1>
+
                     <img className="avatar" src={profile} />
                     <h2>Tihomir Car</h2>
-                    <a href='github.com/tcar'>github</a>
+                    <a  href='https://github.com/tcar'><img width='40' src={git}/></a>
                 </div>
 
 

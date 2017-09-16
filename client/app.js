@@ -11,7 +11,7 @@ import {
 import grid from './public/styles/grid.css'
 import style from './public//styles/style.css'
 import Nav from './components/Nav'
-
+import { CSSTransitionGroup } from 'react-transition-group'
 import Home from './containers/Home'
 import Lista from './containers/List'
 import About from './containers/About'
