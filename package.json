@@ -1,11 +1,16 @@
 {
   "name": "votingapp",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.2.1"
+},
   "description": "",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "webpack": "webpack --w"
+    "webpack": "webpack --watch",
+    "postinstall": "webpack -p",
+"start": "node server.js"
   },
   "author": "",
   "license": "ISC",
