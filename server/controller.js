@@ -46,9 +46,7 @@ deletePoll: async(req,res,next)=>{
     res.send('deleted')
 },
 vote: async (req,res,next)=>{
-    console.log(req.body)
     const poll = await Poll.findOne({_id:req.body.id})
-    console.log(poll)
     poll.users_voted.push(req.user._id)
     poll.save()
     const vote = await Poll.findOneAndUpdate({'options._id':req.body.vote},
@@ -64,7 +62,6 @@ getPoll:async (req,res,next)=>{
     res.send(poll)
 },
 getUser:async(req,res,next)=>{
-    console.log(req.user)
     if(req.user){
         const user= await User.find({_id:req.user._id}).populate('polls')
         res.send(user)
@@ -79,7 +76,6 @@ logout:async(req,res,nexr)=>{
 },
 
 getVotes: async (req,res,next)=>{
-    console.log(req.body)
 
     const poll = await Poll.findOne({_id:req.body.id})
     res.send(poll)

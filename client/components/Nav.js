@@ -3,7 +3,7 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Dialog from 'material-ui/Dialog';
-import { questionChange, optionChange, addOption, send} from '../actions/pollActions'
+import { questionChange, optionChange, addOption, send, deleteOption} from '../actions/pollActions'
 import logo from '../public/logo.png'
 
 import {
@@ -27,6 +27,7 @@ import Form from './Form'
          this.optionChange=this.optionChange.bind(this)
          this.addOption=this.addOption.bind(this)
          this.handleClose = this.handleClose.bind(this)
+         this.deleteOption = this.deleteOption.bind(this)
         }
   
     
@@ -47,7 +48,6 @@ import Form from './Form'
             },
             
         }
-        console.log(this.props.isAuthenticated)
         return(
             <div className='Nav'>
                 <Toolbar style={style}>
@@ -84,6 +84,7 @@ import Form from './Form'
                     onRequestClose={this.handleClose}
                     send = {this.send}
                     handleClose={this.handleClose}
+                    deleteOption= {this.deleteOption}
                     />
                     </Dialog>
                      </div>
@@ -108,6 +109,7 @@ import Form from './Form'
 
 questionChange(e){
     const question = e.target.value
+ 
 this.props.questionChange(question)
 }
 optionChange(e,index){
@@ -117,10 +119,17 @@ this.props.optionChange(index,value)
 addOption(){
 this.props.addOption()
 }
+deleteOption(index){
+    const deleted = this.props.options.filter((option,i)=>{
+        return i!==index
+    })
+    this.props.deleteOption(deleted)
+}
 
 send(e){
 
     e.preventDefault()
+    this.handleClose()
     const options = this.props.options.map((option)=>{
         return {answear:option}
     })
@@ -162,6 +171,9 @@ const mapDispatchToProps = (dispatch)=>{
     send:(poll)=>{
         
        dispatch(send(poll))
+   },
+   deleteOption:(options)=>{
+       dispatch(deleteOption(options))
    }
     }
 }

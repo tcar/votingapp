@@ -23,6 +23,12 @@ export default function pollReducer(state={
                     ]
                 }
                     }
+            case 'DELETE_OPTION':{
+                return{
+                    ...state,
+                    options:action.payload
+                }
+            }
             case'CHANGE_OPTION':{
                return {...state,
                 options:[...state.options.slice(0, action.payload.index), action.payload.value, ...state.options.slice(action.payload.index+1)]

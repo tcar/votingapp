@@ -7,7 +7,6 @@ export function getUser(){
         method:'get',
         url:'/user'
     }).then((res)=>{
-        console.log(res)
         if(res.data.logedin==false){
             dispatch({type:'NOTlOGGEDIN',payload:res.data.logedin})
         }else{

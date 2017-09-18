@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 export function questionChange(question){
+    
    return  dispatch=>{
        dispatch({type:'CHANGE_QUESTION',payload:question})
     }
@@ -19,9 +20,14 @@ export function addOption(){
         return dispatch=>{
             dispatch({type:'ADD_OPTION'})
         }
+    }
+    export function deleteOption(options){
+        return dispatch=>{
+            dispatch({type:'DELETE_OPTION', payload:options})
+        
         }
+    }
 export function send(poll){
-    console.log(poll)
         return dispatch=>{
             axios({
                 method:'post',
@@ -53,7 +59,6 @@ export function getList(){
             url:'/getPolls',
         }).then((res)=>{
 
-            console.log(res.data)
             dispatch({type:'GET_POLLS', payload:res.data})
         })
     }
@@ -64,7 +69,6 @@ export function myPolls(){
             method:'get',
             url:'/myPolls'
         }).then((res)=>{
-            console.log(res.data)
             dispatch({type:'GET_MYPOLLS', payload:res.data})
         })
     }
@@ -83,7 +87,6 @@ export function postVote(vote){
             data:vote,
             withCredentials:true
         }).then((res)=>{
-            console.log(res.data)
             dispatch({type:'VOTED', payload:res.data})
         })
     }
