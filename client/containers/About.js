@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Avatar from 'material-ui/Avatar';
-import profile from '../public/img/tcar.jpg'
-import logo from '../public/img/logo.png'
-import git from '../public/img/git.png'
+import profile from '../public/tcar.jpg'
+import logo from '../public/logo.png'
+import git from '../public/git.png'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 export default class About extends Component{

@@ -5,13 +5,14 @@ const session = require('express-session')
 const passport = require('passport')
 const path = require('path')
 const cookieParser = require('cookie-parser');
+var MongoStore = require('connect-mongo')(session);
 
 const bodyParser = require('body-parser')
 
 mongoose.connect( process.env.MONGOLAB_URL||'mongodb://localhost:27017/votingapp')
 const app = express()
 
-app.use(express.static(path.join(__dirname, 'client/public')))
+app.use(express.static(path.join(__dirname, 'dist')))
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 app.use(cookieParser('keyboard cat'));
@@ -19,7 +20,8 @@ app.use(cookieParser('keyboard cat'));
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
  
 }))
 

@@ -3,16 +3,16 @@ const path = require('path')
 
 module.exports ={
 devtool:'inline-sourcemap',
-entry: path.join(__dirname, 'client/index.js'),
+entry: './client/index.js',
 output:{
-path:path.join(__dirname, 'client/public'),
-filename:'bundle.js'
+path: path.resolve(__dirname, "dist"),
+filename:'bundle.js',
+
 },
 module:{
     loaders:[
         {
             test:/\.js$/,
-            include:path.join(__dirname, 'client'),
             loaders:'babel-loader',
             exclude: /(node_modules)/,
             query:{
@@ -29,16 +29,15 @@ module:{
         ]
     },
     {
-        test: /\.(png|jpg|gif|ttf)$/,
+        test: /\.(gif|ttf|png|jpg)$/,
         use: [
           {
             loader: 'file-loader',
-            options: {
-                name: '[path][name].[ext]'
-            }  
+            options: {} 
+              
           }
         ]
-    }
+}
 ]
 }
 

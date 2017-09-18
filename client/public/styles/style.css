@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400');
 
 body{
-    background: url('../img/background.jpg') no-repeat;
+    background: url('../background.jpg') no-repeat;
     background-size: cover;
     height:100vh;
 }

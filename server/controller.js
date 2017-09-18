@@ -14,7 +14,7 @@ module.exports = {
 
     login :async (req,res,next)=>{ 
     req.session.save()
-    res.redirect('/login/' + req.user.facebook.token)
+    res.redirect('/')
     
     },
 
@@ -63,9 +63,15 @@ getPoll:async (req,res,next)=>{
     const poll = await Poll.find({_id:req.body.id})
     res.send(poll)
 },
-getUser:async(req,res,nexr)=>{
-    const user= await User.find({_id:req.user._id}).populate('polls')
-    res.send(user)
+getUser:async(req,res,next)=>{
+    console.log(req.user)
+    if(req.user){
+        const user= await User.find({_id:req.user._id}).populate('polls')
+        res.send(user)
+    }else{
+        res.send({logedin:false})
+    }
+ 
 },
 logout:async(req,res,nexr)=>{
     req.logout();

@@ -4,7 +4,7 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Dialog from 'material-ui/Dialog';
 import { questionChange, optionChange, addOption, send} from '../actions/pollActions'
-import logo from '../public/img/logo.png'
+import logo from '../public/logo.png'
 
 import {
     BrowserRouter as Router,
@@ -47,7 +47,7 @@ import Form from './Form'
             },
             
         }
-
+        console.log(this.props.isAuthenticated)
         return(
             <div className='Nav'>
                 <Toolbar style={style}>
@@ -58,7 +58,7 @@ import Form from './Form'
                     </ToolbarGroup>
                     <ToolbarGroup lastChild={true}>
                     <div >
- 
+
                    {this.props.isAuthenticated?(
                        <div>
                     <DropDownMenu value={1} >

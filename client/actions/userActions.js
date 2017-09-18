@@ -8,7 +8,12 @@ export function getUser(){
         url:'/user'
     }).then((res)=>{
         console.log(res)
-        dispatch({type:'LOGIN',payload:res.data[0]})
+        if(res.data.logedin==false){
+            dispatch({type:'NOTlOGGEDIN',payload:res.data.logedin})
+        }else{
+            dispatch({type:'LOGIN',payload:res.data[0]})
+            
+        }
     })
 
 

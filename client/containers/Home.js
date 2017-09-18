@@ -1,7 +1,15 @@
 import React, { Component } from 'react'
 import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from 'react-router-dom'
-export default class Home extends Component{
+import { connect } from 'react-redux'
+
+import { getUser } from '../actions/userActions'
+ class Home extends Component{
+    componentWillMount(){
+        if(this.props.isAuthenticated==false){
+            this.props.getUser()
+        }
+    }
     render(){
         return(
             <div className='Home'>
@@ -14,3 +22,23 @@ export default class Home extends Component{
         )
     }
 }
+
+const mapStateToProps = (state)=>{
+    return {
+        isAuthenticated:state.user.isAuthenticated
+    }
+}
+
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        getUser:()=>{
+            dispatch(getUser())
+        }
+        
+    }
+}
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

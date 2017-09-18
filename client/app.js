@@ -8,8 +8,8 @@ import {
  } from 'react-router-dom'
  import { connect } from 'react-redux'
 
-import grid from './public/styles/grid.css'
-import style from './public//styles/style.css'
+import  './public/styles/grid.css'
+import './public//styles/style.css'
 import Nav from './components/Nav'
 import { CSSTransitionGroup } from 'react-transition-group'
 import Home from './containers/Home'
@@ -25,29 +25,21 @@ import Result from './containers/Result'
 class App extends Component{
     render(){
       
-
-
         return(
             <div > 
                 
                 <Router>
                     <div>
-                
+                    <Nav />
                 <div >
-                <Nav />
+                
                     <Switch >
                             <Route exact path = '/' component={Home} />
                             <Route exact path = '/result' component={Result} />
                             <Route exact path = '/list'   component={Lista} />
                             <Route exact path = '/about' component={About} />
                             <Route exact path = '/mipolls' component={MyPolls} />
-                            <Route exact path="/login/:token" render={() => (
-                            this.props.isAuthenticated ? 
-                            (
-                                <Redirect to="/"/>
-                            ) : (
-                            <Login/>
-                                )
+                       
 )}/>
                     </Switch>
                     </div>
